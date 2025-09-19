@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pdf
+*.log
+*.sqlite3
+sample_data/

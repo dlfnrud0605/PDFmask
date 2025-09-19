@@ -1,0 +1,35 @@
+<!--...\server\masker\templates\masker\upload.html-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Mask Upload</title>
+</head>
+<body>
+    <h2>PDF Masking Test</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file">PDF 파일 선택:</label>
+        <input type="file" name="file" accept="application/pdf" required><br><br>
+
+        <label for="mode">Mode:</label>
+        <select name="mode">
+            <option value="redact">Redact</option>
+            <option value="highlight">Highlight</option>
+        </select><br><br>
+
+        <label for="target_mode">Target Mode:</label>
+        <select name="target_mode">
+            <option value="both">Both</option>
+            <option value="josa_only">Josa Only</option>
+            <option value="nouns_only">Nouns Only</option>
+        </select><br><br>
+
+        <label for="mask_ratio">Mask Ratio (0~1):</label>
+        <input type="text" name="mask_ratio" value="0.95"><br><br>
+
+        <button type="submit">업로드 & 마스킹 실행</button>
+    </form>
+</body>
+</html>
